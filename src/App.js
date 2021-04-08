@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import  React  from 'react';
+import {Switch, Route} from 'react-router-dom';
+import LandingPageLayout from './layouts/LandingPage';
+import HomePage from './pages/HomePage';
+import About from './About';
+import Contact from './Contact';
+import Services from './Services';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route path='/'>
+          <LandingPageLayout heading='HAPPY FAMILY' className='bg-gray-100'>
+            <HomePage />
+          </LandingPageLayout>
+      </Route>
+      <Route path='/About' component={About}></Route>
+      <Route path='/Contact' component={Contact}></Route>
+      <Route path='/Services' component={Services}></Route>
+    </Switch>
   );
-}
+};
 
 export default App;
